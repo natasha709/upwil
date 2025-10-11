@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Consulting Group - Our Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { padding-top: 80px; padding-bottom: 120px; }
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        footer { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-green-50 shadow-md">
+        <div class="max-w-7xl mx-auto pl-0 pr-4 sm:pr-6 lg:pr-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="/logo.jpg" alt="Green Consulting Group Logo" class="h-20 w-auto">
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/" class="text-gray-700 hover:text-green-800">Home</a>
+                    <a href="/about" class="text-gray-700 hover:text-green-800">About</a>
+                    <a href="/services" class="text-gray-700 hover:text-green-800">Services</a>
+                    <a href="/expertise" class="text-gray-700 hover:text-green-800">Expertise</a>
+                    <a href="/mission" class="text-gray-700 hover:text-green-800">Mission</a>
+                </nav>
+                <div class="md:hidden">
+                    <button class="text-gray-700 hover:text-green-800 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="bg-green-50 py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-green-800 mb-4">Our Services</h2>
+                <p class="text-lg text-gray-600">Comprehensive environmental solutions tailored to your needs</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+                    <img src="/uploads/envir.jpg" alt="EIA" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-xl text-green-700 mb-2">Environmental Impact Assessments (EIA)</h3>
+                    <p class="text-gray-600">Identifying and mitigating potential environmental impacts of development projects to ensure sustainable growth.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+                    <img src="/uploads/ugg.jpg" alt="Sustainability Consulting" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-xl text-green-700 mb-2">Sustainability Consulting</h3>
+                    <p class="text-gray-600">Developing strategies for sustainable development and implementing environmentally friendly practices across industries.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+                    <img src="/uploads/reas.jpg" alt="Research and Development" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-xl text-green-700 mb-2">Research and Development</h3>
+                    <p class="text-gray-600">Conducting cutting-edge research on environmental issues and developing innovative solutions for a greener future.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+                    <img src="/uploads/cons.webp" alt="Capacity Building" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-xl text-green-700 mb-2">Capacity Building and Training</h3>
+                    <p class="text-gray-600">Providing comprehensive training and capacity-building programs for organizations and individuals to foster environmental awareness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-700 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Green Consulting Group. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
