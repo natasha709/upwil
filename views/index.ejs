@@ -92,31 +92,94 @@
         h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
             font-family: 'DM Sans', sans-serif;
         }
+        
+        /* Moving cards animation */
+        .moving-cards-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        
+        .moving-cards-track {
+            display: flex;
+            gap: 2rem;
+            animation: scroll-cards 30s linear infinite;
+        }
+        
+        .moving-card {
+            flex: 0 0 auto;
+            width: 350px;
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .moving-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        @keyframes scroll-cards {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        /* Pause animation on hover */
+        .moving-cards-container:hover .moving-cards-track {
+            animation-play-state: paused;
+        }
+        
+        /* Icon styles for expertise section */
+        .expertise-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #dcfce7;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            color: #166534;
+        }
     </style>
 </head>
 <body class="bg-green-50 font-sans">
     <!-- Header -->
     <header class="bg-green-800">
-        <div class="max-w-7xl mx-auto pl-0 pr-4 sm:pr-6 lg:pr-8">
-            <div class="flex justify-between items-center py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
-                    <img src="/logoUp.jpg" alt="Upwil Environmental Integrated Consultancy and Research Center Ltd Logo" class="h-14 w-auto transition-transform hover:scale-105">
+                    <!-- Logo placeholder - you can add your logo here -->
                 </div>
-                <nav id="nav-menu" class="hidden md:flex space-x-6">
-                    <a href="#home" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-sm">Home</a>
-                    <a href="#about" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-sm">About</a>
-                    <a href="#services" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-sm">Services</a>
-                    <a href="#expertise" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-sm">Expertise</a>
-                    <a href="#mission" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-sm">Mission</a>
-                    <a href="#contact" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-sm">Contact</a>
+                <nav id="nav-menu" class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-lg">Home</a>
+                    <a href="#about" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-lg">About</a>
+                    <a href="#services" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-lg">Services</a>
+                    <a href="#expertise" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-lg">Expertise</a>
+                    <a href="#mission" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-lg">Mission</a>
+                    <a href="#contact" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-lg">Contact</a>
                 </nav>
                 <div class="md:hidden">
                     <button id="menu-button" class="text-white hover:text-green-100 focus:outline-none transition-colors">
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="md:hidden bg-green-900 rounded-lg mt-2 px-4 py-2">
+                <a href="#home" class="block py-3 text-white hover:text-green-100 font-medium text-lg">Home</a>
+                <a href="#about" class="block py-3 text-white hover:text-green-100 font-medium text-lg">About</a>
+                <a href="#services" class="block py-3 text-white hover:text-green-100 font-medium text-lg">Services</a>
+                <a href="#expertise" class="block py-3 text-white hover:text-green-100 font-medium text-lg">Expertise</a>
+                <a href="#mission" class="block py-3 text-white hover:text-green-100 font-medium text-lg">Mission</a>
+                <a href="#contact" class="block py-3 text-white hover:text-green-100 font-medium text-lg">Contact</a>
             </div>
         </div>
     </header>
@@ -143,24 +206,6 @@
         <!-- Text content removed - only video background remains -->
     </section>
 
-    <!-- Gallery Section -->
-    <section id="projects" class="py-20 bg-green-50 fade-in">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-green-800 mb-12">Our Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="card-hover">
-                    <img src="/uploads/ugg.jpg" alt="Climate Project" class="w-full h-64 object-cover rounded-xl shadow-lg">
-                </div>
-                <div class="card-hover">
-                    <img src="/uploads/fire.jpg" alt="Housing Project" class="w-full h-64 object-cover rounded-xl shadow-lg">
-                </div>
-                <div class="card-hover">
-                    <img src="/uploads/envir.jpg" alt="Management Project" class="w-full h-64 object-cover rounded-xl shadow-lg">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- About Section -->
     <section id="about" class="py-20 bg-green-50 fade-in">
         <div class="max-w-6xl mx-auto px-6">
@@ -184,39 +229,47 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section with Moving Cards -->
     <section id="services" class="py-20 bg-green-50 fade-in">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-5xl font-bold text-center text-green-800 mb-6">Our Services</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto text-center">Comprehensive environmental solutions tailored to your needs</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
-                    <img src="/uploads/envir.jpg" alt="EIA" class="w-full h-48 object-cover rounded-xl mb-6">
-                    <h3 class="font-bold text-2xl text-green-700 mb-4">Environmental Impact Assessments (EIA)</h3>
-                    <p class="text-gray-600 leading-relaxed">Identifying and mitigating potential environmental impacts of development projects to ensure sustainable growth.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
-                    <img src="/uploads/ugg.jpg" alt="Sustainability Consulting" class="w-full h-48 object-cover rounded-xl mb-6">
-                    <h3 class="font-bold text-2xl text-green-700 mb-4">Sustainability Consulting</h3>
-                    <p class="text-gray-600 leading-relaxed">Developing strategies for sustainable development and implementing environmentally friendly practices across industries.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
-                    <img src="/uploads/reas.jpg" alt="Research and Development" class="w-full h-48 object-cover rounded-xl mb-6">
-                    <h3 class="font-bold text-2xl text-green-700 mb-4">Research and Development</h3>
-                    <p class="text-gray-600 leading-relaxed">Conducting cutting-edge research on environmental issues and developing innovative solutions for a greener future.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
-                    <img src="/uploads/cons.webp" alt="Capacity Building" class="w-full h-48 object-cover rounded-xl mb-6">
-                    <h3 class="font-bold text-2xl text-green-700 mb-4">Capacity Building and Training</h3>
-                    <p class="text-gray-600 leading-relaxed">Providing comprehensive training and capacity-building programs for organizations and individuals to foster environmental awareness.</p>
+            
+            <!-- Moving Cards Section -->
+            <div class="moving-cards-container mb-16">
+                <div class="moving-cards-track">
+                    <!-- Card 1 -->
+                    <div class="moving-card">
+                        <img src="/uploads/envir.jpg" alt="EIA" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h3 class="font-bold text-xl text-green-700 mb-3">Environmental Impact Assessments (EIA)</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Identifying and mitigating potential environmental impacts of development projects to ensure sustainable growth.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="moving-card">
+                        <img src="/uploads/ugg.jpg" alt="Sustainability Consulting" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h3 class="font-bold text-xl text-green-700 mb-3">Sustainability Consulting</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Developing strategies for sustainable development and implementing environmentally friendly practices across industries.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="moving-card">
+                        <img src="/uploads/reas.jpg" alt="Research and Development" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h3 class="font-bold text-xl text-green-700 mb-3">Research and Development</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Conducting cutting-edge research on environmental issues and developing innovative solutions for a greener future.</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="moving-card">
+                        <img src="/uploads/cons.webp" alt="Capacity Building" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h3 class="font-bold text-xl text-green-700 mb-3">Capacity Building and Training</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Providing comprehensive training and capacity-building programs for organizations and individuals to foster environmental awareness.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Expertise Section -->
+    <!-- Expertise Section with Iconography -->
     <section id="expertise" class="py-20 bg-green-50 fade-in">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -225,17 +278,29 @@
             </div>
             <div class="grid md:grid-cols-3 gap-10">
                 <div class="bg-white p-8 rounded-2xl shadow-lg card-hover text-center">
-                    <img src="/uploads/man.avif" alt="Environmental Management" class="w-full h-32 object-cover rounded-xl mb-6 mx-auto">
+                    <div class="expertise-icon">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
                     <h3 class="font-bold text-2xl text-green-700 mb-4">Environmental Management</h3>
                     <p class="text-gray-600 leading-relaxed">Developing and implementing comprehensive environmental management systems and strategies to ensure compliance and sustainability.</p>
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-lg card-hover text-center">
-                    <img src="/uploads/clim.avif" alt="Climate Change" class="w-full h-32 object-cover rounded-xl mb-6 mx-auto">
+                    <div class="expertise-icon">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"></path>
+                        </svg>
+                    </div>
                     <h3 class="font-bold text-2xl text-green-700 mb-4">Climate Change</h3>
                     <p class="text-gray-600 leading-relaxed">Conducting detailed climate change vulnerability assessments and developing effective adaptation strategies for resilient communities.</p>
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-lg card-hover text-center">
-                    <img src="/uploads/hou.avif" alt="Sustainable Development" class="w-full h-32 object-cover rounded-xl mb-6 mx-auto">
+                    <div class="expertise-icon">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
                     <h3 class="font-bold text-2xl text-green-700 mb-4">Sustainable Development</h3>
                     <p class="text-gray-600 leading-relaxed">Promoting sustainable development practices and seamlessly integrating environmental considerations into all development projects.</p>
                 </div>
@@ -284,7 +349,7 @@
                         <svg class="h-12 w-12 text-green-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                         </svg>
-                        <p class="text-lg text-gray-700">+256 772 063 06, +250 788 269 058</p>
+                        <p class="text-lg text-gray-700">+256 772 063 06, +256 777 214 909</p>
                     </div>
                     <div class="flex flex-col items-center">
                         <svg class="h-12 w-12 text-green-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -299,24 +364,24 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-green-50 py-4">
+    <footer class="bg-green-800 py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-green-800 text-sm">&copy; 2025 Upwil Environmental Integrated Consultancy and Research Center Ltd. All rights reserved.</p>
+            <p class="text-white text-sm">&copy; 2025 Upwil Environmental Integrated Consultancy and Research Center Ltd. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         // Mobile menu toggle
         const menuButton = document.getElementById('menu-button');
-        const navMenu = document.getElementById('nav-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
         menuButton.addEventListener('click', () => {
-            navMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('hidden');
         });
 
         // Smooth scroll for mobile menu links
-        document.querySelectorAll('#nav-menu a').forEach(link => {
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.add('hidden'); // Close menu on mobile after click
+                mobileMenu.classList.add('hidden'); // Close menu on mobile after click
             });
         });
 
@@ -369,6 +434,18 @@
                 fallbackImage.style.display = 'none';
             }
         }
+
+        // Continuous card flow without duplicates
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.moving-cards-track');
+            const cards = Array.from(track.children);
+            
+            // Clone all cards and append to track for seamless loop
+            cards.forEach(card => {
+                const clone = card.cloneNode(true);
+                track.appendChild(clone);
+            });
+        });
     </script>
 </body>
 </html>

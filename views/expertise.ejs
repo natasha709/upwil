@@ -1,74 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Consulting Group - Our Expertise</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { padding-top: 80px; padding-bottom: 120px; }
-        header { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        footer { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Consulting Group - Our Expertise</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { padding-top: 80px; padding-bottom: 120px; }
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    footer { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10; }
+  </style>
 </head>
+
 <body class="bg-gray-100">
-    <!-- Header -->
-    <header class="bg-green-50 shadow-md">
-        <div class="max-w-7xl mx-auto pl-0 pr-4 sm:pr-6 lg:pr-8">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <img src="/logo.jpg" alt="Green Consulting Group Logo" class="h-20 w-auto">
-                </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="/" class="text-gray-700 hover:text-green-800">Home</a>
-                    <a href="/about" class="text-gray-700 hover:text-green-800">About</a>
-                    <a href="/services" class="text-gray-700 hover:text-green-800">Services</a>
-                    <a href="/expertise" class="text-gray-700 hover:text-green-800">Expertise</a>
-                    <a href="/mission" class="text-gray-700 hover:text-green-800">Mission</a>
-                </nav>
-                <div class="md:hidden">
-                    <button class="text-gray-700 hover:text-green-800 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <!-- Expertise Section -->
-    <section class="py-16 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-green-800 mb-4">Our Expertise</h2>
-                <p class="text-lg text-gray-600">Areas where we excel in delivering exceptional environmental solutions</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-green-50 p-6 rounded-xl shadow hover:shadow-lg text-center">
-                    <img src="/uploads/man.avif" alt="Environmental Management" class="w-full h-32 object-cover rounded-lg mb-4">
-                    <h3 class="font-semibold text-xl text-green-700 mb-2">Environmental Management</h3>
-                    <p class="text-gray-600">Developing and implementing comprehensive environmental management systems and strategies to ensure compliance and sustainability.</p>
-                </div>
-                <div class="bg-green-50 p-6 rounded-xl shadow hover:shadow-lg text-center">
-                    <img src="/uploads/clim.avif" alt="Climate Change" class="w-full h-32 object-cover rounded-lg mb-4">
-                    <h3 class="font-semibold text-xl text-green-700 mb-2">Climate Change</h3>
-                    <p class="text-gray-600">Conducting detailed climate change vulnerability assessments and developing effective adaptation strategies for resilient communities.</p>
-                </div>
-                <div class="bg-green-50 p-6 rounded-xl shadow hover:shadow-lg text-center">
-                    <img src="/uploads/hou.avif" alt="Sustainable Development" class="w-full h-32 object-cover rounded-lg mb-4">
-                    <h3 class="font-semibold text-xl text-green-700 mb-2">Sustainable Development</h3>
-                    <p class="text-gray-600">Promoting sustainable development practices and seamlessly integrating environmental considerations into all development projects.</p>
-                </div>
-            </div>
+  <!-- Header -->
+  <header class="bg-green-50 shadow-md">
+    <div class="max-w-7xl mx-auto pl-0 pr-4 sm:pr-6 lg:pr-8">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center">
+          <img src="/logo.jpg" alt="Green Consulting Group Logo" class="h-20 w-auto" />
         </div>
-    </section>
+        <nav class="hidden md:flex space-x-8">
+          <a href="/" class="text-gray-700 hover:text-green-800">Home</a>
+          <a href="/about" class="text-gray-700 hover:text-green-800">About</a>
+          <a href="/services" class="text-gray-700 hover:text-green-800">Services</a>
+          <a href="/expertise" class="text-gray-700 hover:text-green-800">Expertise</a>
+          <a href="/mission" class="text-gray-700 hover:text-green-800">Mission</a>
+        </nav>
+        <div class="md:hidden">
+          <button class="text-gray-700 hover:text-green-800 focus:outline-none">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <!-- Footer -->
-    <footer class="bg-green-700 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2025 Green Consulting Group. All rights reserved.</p>
+  <!-- Expertise Section -->
+  <section class="py-20 bg-white" id="expertise">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-green-800 mb-4">Our Expertise</h2>
+        <p class="text-lg text-gray-600">Our team of experts has extensive experience in key environmental domains.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Environmental Management -->
+        <div class="bg-green-50 p-8 rounded-xl shadow hover:shadow-lg text-center border border-green-100 hover:-translate-y-2 transition-all duration-300">
+          <div class="w-16 h-16 mx-auto bg-green-700 text-white rounded-lg flex items-center justify-center mb-6">
+            <!-- Trees Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M12 13V2m0 11 4 4H8l4-4Z" />
+              <path d="M20 20H4m8-3v3" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-xl text-green-800 mb-3">Environmental Management</h3>
+          <p class="text-gray-600 mb-4">Developing and implementing comprehensive environmental management systems that ensure compliance and promote sustainability.</p>
+          <ul class="text-left text-green-700 space-y-2">
+            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>ISO 14001 Implementation</li>
+            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>Environmental Auditing</li>
+            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>Compliance Management</li>
+          </ul>
         </div>
-    </footer>
+
+        <!-- Climate Change -->
+        <div class="bg-green-50 p-8 rounded-xl shadow hover:shadow-lg text-center border border-green-100 hover:-translate-y-2 transition-all duration-300">
+          <div class="w-16 h-16 mx-auto bg-green-700 text-white rounded-lg flex items-center justify-center mb-6">
+            <!-- Cloud Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M17.5 19a4.5 4.5 0 0 0 0-9h-.26A7 7 0 0 0 4 12a5 5 0 0 0 1 10h12.5Z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-xl text-green-800 mb-3">Climate Change</h3>
+          <p class="text-gray-600 mb-4">Conducting thorough climate change vulnerability assessments and developing robust adaptation strategies.</p>
+          <ul class="text-left text-green-700 space-y-2">
+            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>Vulnerability Assessments</li>
+            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>Adaptation Planning</li>
+            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>Carbon Footprint Analysis</li>
+          </ul>
+        </div>
+
+        <!-- Sustainable Development -->
+        <div class="bg-green-50 p-8 rounded-xl shadow hover:shadow-lg text-center border border-green-100 hover:-translate-y-2 transition-all duration-300">
+          <div class="w-16 h-16 mx-auto bg-green-700 text-white rounded-lg flex items-center justify-center mb-6">
+            <!-- Target Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-xl text-green-800 mb-3">Sustainable Development</h3>
+          <p class="text-gray-600 mb-4">Promoting sustainable development practices and integrating environmental considerations into development projects.</p>
+          <ul class="text-left text-green-700 space-y-2">
+            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>Sustainable Design</li>
+            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>Green Building</li>
+            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>Resource Optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p>&copy; 2025 Green Consulting Group. All rights reserved.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
