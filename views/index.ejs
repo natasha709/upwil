@@ -5,38 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upwil Environmental Integrated Consultancy and Research Center Ltd - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
-        body { padding-top: 80px; padding-bottom: 80px; }
-        header { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.3s; }
-        footer { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10; }
+        body { 
+            padding-top: 60px; 
+            padding-bottom: 50px; 
+            background-color: #f0fdf4;
+            font-family: 'DM Sans', sans-serif;
+        }
+        header { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            z-index: 10; 
+            background: rgba(22, 101, 52, 0.95); 
+            backdrop-filter: blur(10px); 
+            box-shadow: 0 2px 4px rgba(22, 101, 52, 0.2); 
+            transition: all 0.3s;
+            font-family: 'DM Sans', sans-serif;
+        }
+        footer { 
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            z-index: 10;
+            font-family: 'DM Sans', sans-serif;
+        }
         .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .hero-bg { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); }
-        .section-bg-alt { background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%); }
         .card-hover { transition: transform 0.3s, box-shadow 0.3s; }
         .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        
+        /* Video background styles */
+        .video-hero {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(22, 101, 52, 0.4);
+            z-index: 2;
+        }
+        /* Fallback background if video fails to load */
+        .video-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #166534 0%, #22c55e 100%);
+            z-index: 0;
+        }
+        .fallback-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            display: none;
+        }
+        
+        /* Apply DM Sans font to all text elements */
+        h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
+            font-family: 'DM Sans', sans-serif;
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-green-50 font-sans">
     <!-- Header -->
-    <header class="bg-white">
+    <header class="bg-green-800">
         <div class="max-w-7xl mx-auto pl-0 pr-4 sm:pr-6 lg:pr-8">
-            <div class="flex justify-between items-center py-4">
+            <div class="flex justify-between items-center py-2">
                 <div class="flex items-center">
-                    <img src="/logo.jpg" alt="Upwil Environmental Integrated Consultancy and Research Center Ltd Logo" class="h-20 w-auto transition-transform hover:scale-105">
+                    <img src="/logoUp.jpg" alt="Upwil Environmental Integrated Consultancy and Research Center Ltd Logo" class="h-14 w-auto transition-transform hover:scale-105">
                 </div>
-                <nav id="nav-menu" class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-green-800 transition-colors duration-300">Home</a>
-                    <a href="#about" class="text-gray-700 hover:text-green-800 transition-colors duration-300">About</a>
-                    <a href="#services" class="text-gray-700 hover:text-green-800 transition-colors duration-300">Services</a>
-                    <a href="#expertise" class="text-gray-700 hover:text-green-800 transition-colors duration-300">Expertise</a>
-                    <a href="#mission" class="text-gray-700 hover:text-green-800 transition-colors duration-300">Mission</a>
-                    <a href="#contact" class="text-gray-700 hover:text-green-800 transition-colors duration-300">Contact</a>
+                <nav id="nav-menu" class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-sm">Home</a>
+                    <a href="#about" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-sm">About</a>
+                    <a href="#services" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-sm">Services</a>
+                    <a href="#expertise" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-sm">Expertise</a>
+                    <a href="#mission" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-sm">Mission</a>
+                    <a href="#contact" class="text-white hover:text-green-100 transition-colors duration-300 font-bold text-sm">Contact</a>
                 </nav>
                 <div class="md:hidden">
-                    <button id="menu-button" class="text-gray-700 hover:text-green-800 focus:outline-none transition-colors">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <button id="menu-button" class="text-white hover:text-green-100 focus:outline-none transition-colors">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
@@ -45,25 +121,30 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="text-center hero-bg py-24 fade-in">
-        <div class="max-w-4xl mx-auto px-6">
-            <h1 class="text-5xl md:text-6xl font-bold text-green-800 mb-6 animate-pulse">Upwil Environmental Integrated Consultancy and Research Center Ltd</h1>
-            <p class="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Leading the way in environmental consultancy, research, and sustainable development solutions. We are dedicated to promoting environmental stewardship, social responsibility, and economic growth through innovative and high-quality services.
-            </p>
-            <div class="flex justify-center space-x-6">
-                <a href="#about" class="bg-green-700 text-white px-10 py-4 rounded-full hover:bg-green-800 transition-all duration-300 inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1">Learn More</a>
-                <a href="#services" class="border-2 border-green-700 text-green-700 px-10 py-4 rounded-full hover:bg-green-100 transition-all duration-300 inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1">Our Services</a>
-            </div>
-        </div>
-        <div class="mt-12">
-            <img src="/uploads/envir.jpg" alt="Environmental Consultancy" class="w-full max-w-5xl mx-auto rounded-xl shadow-2xl transition-transform hover:scale-105">
-        </div>
+    <!-- Hero Section with Video Background Only -->
+    <section id="home" class="video-hero fade-in">
+        <!-- Video with new path -->
+        <video class="video-background" autoplay muted loop playsinline preload="metadata">
+            <!-- Try absolute path first -->
+            <source src="/public/upw.mp4" type="video/mp4">
+            <!-- Try without public folder if HTML is in public directory -->
+            <source src="upw.mp4" type="video/mp4">
+            <!-- Try relative path -->
+            <source src="./public/upw.mp4" type="video/mp4">
+            <!-- Try just the filename -->
+            <source src="upw.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Fallback image -->
+        <img src="/uploads/envir.jpg" alt="Environmental Background" class="fallback-image" id="fallback-image">
+        
+        <div class="video-overlay"></div>
+        <!-- Text content removed - only video background remains -->
     </section>
 
     <!-- Gallery Section -->
-    <section id="projects" class="py-20 section-bg-alt fade-in">
+    <section id="projects" class="py-20 bg-green-50 fade-in">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-4xl font-bold text-center text-green-800 mb-12">Our Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -81,11 +162,11 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white fade-in">
+    <section id="about" class="py-20 bg-green-50 fade-in">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold text-green-800 mb-6">About Us</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Learn more about our commitment to environmental excellence</p>
+                <h2 class="text-5xl font-bold text-center text-green-800 mb-6">About Us</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto text-center">Learn more about our commitment to environmental excellence</p>
             </div>
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div>
@@ -104,11 +185,11 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 section-bg-alt fade-in">
+    <section id="services" class="py-20 bg-green-50 fade-in">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold text-green-800 mb-6">Our Services</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive environmental solutions tailored to your needs</p>
+                <h2 class="text-5xl font-bold text-center text-green-800 mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto text-center">Comprehensive environmental solutions tailored to your needs</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
                 <div class="bg-white p-8 rounded-2xl shadow-lg card-hover">
@@ -136,24 +217,24 @@
     </section>
 
     <!-- Expertise Section -->
-    <section id="expertise" class="py-20 bg-white fade-in">
+    <section id="expertise" class="py-20 bg-green-50 fade-in">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold text-green-800 mb-6">Our Expertise</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Areas where we excel in delivering exceptional environmental solutions</p>
+                <h2 class="text-5xl font-bold text-center text-green-800 mb-6">Our Expertise</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto text-center">Areas where we excel in delivering exceptional environmental solutions</p>
             </div>
             <div class="grid md:grid-cols-3 gap-10">
-                <div class="bg-green-50 p-8 rounded-2xl shadow-lg card-hover text-center">
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover text-center">
                     <img src="/uploads/man.avif" alt="Environmental Management" class="w-full h-32 object-cover rounded-xl mb-6 mx-auto">
                     <h3 class="font-bold text-2xl text-green-700 mb-4">Environmental Management</h3>
                     <p class="text-gray-600 leading-relaxed">Developing and implementing comprehensive environmental management systems and strategies to ensure compliance and sustainability.</p>
                 </div>
-                <div class="bg-green-50 p-8 rounded-2xl shadow-lg card-hover text-center">
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover text-center">
                     <img src="/uploads/clim.avif" alt="Climate Change" class="w-full h-32 object-cover rounded-xl mb-6 mx-auto">
                     <h3 class="font-bold text-2xl text-green-700 mb-4">Climate Change</h3>
                     <p class="text-gray-600 leading-relaxed">Conducting detailed climate change vulnerability assessments and developing effective adaptation strategies for resilient communities.</p>
                 </div>
-                <div class="bg-green-50 p-8 rounded-2xl shadow-lg card-hover text-center">
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover text-center">
                     <img src="/uploads/hou.avif" alt="Sustainable Development" class="w-full h-32 object-cover rounded-xl mb-6 mx-auto">
                     <h3 class="font-bold text-2xl text-green-700 mb-4">Sustainable Development</h3>
                     <p class="text-gray-600 leading-relaxed">Promoting sustainable development practices and seamlessly integrating environmental considerations into all development projects.</p>
@@ -163,7 +244,7 @@
     </section>
 
     <!-- Mission Section -->
-    <section id="mission" class="py-20 section-bg-alt fade-in">
+    <section id="mission" class="py-20 bg-green-50 fade-in">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div>
@@ -183,11 +264,11 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white fade-in">
+    <section id="contact" class="py-20 bg-green-50 fade-in">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold text-green-800 mb-6">Contact Us</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Have a project or inquiry? We'd love to hear from you. Reach out to discuss your environmental needs.</p>
+                <h2 class="text-5xl font-bold text-center text-green-800 mb-6">Contact Us</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto text-center">Have a project or inquiry? We'd love to hear from you. Reach out to discuss your environmental needs.</p>
             </div>
             <div class="max-w-4xl mx-auto">
                 <h3 class="text-3xl font-semibold text-green-700 mb-6 text-center">Get In Touch</h3>
@@ -218,9 +299,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-green-800 text-white py-8">
+    <footer class="bg-green-50 py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2025 Upwil Environmental Integrated Consultancy and Research Center Ltd. All rights reserved.</p>
+            <p class="text-green-800 text-sm">&copy; 2025 Upwil Environmental Integrated Consultancy and Research Center Ltd. All rights reserved.</p>
         </div>
     </footer>
 
@@ -255,11 +336,39 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
-                header.classList.add('bg-white', 'shadow-lg');
+                header.classList.add('bg-green-800', 'shadow-lg');
+                header.style.boxShadow = '0 2px 4px rgba(22, 101, 52, 0.2)';
             } else {
                 header.classList.remove('shadow-lg');
+                header.style.boxShadow = '0 2px 4px rgba(22, 101, 52, 0.2)';
             }
         });
+
+        // Video error handling with fallback
+        const video = document.querySelector('.video-background');
+        const fallbackImage = document.getElementById('fallback-image');
+        
+        if (video) {
+            video.addEventListener('error', function() {
+                console.log('Video failed to load, showing fallback image');
+                video.style.display = 'none';
+                if (fallbackImage) {
+                    fallbackImage.style.display = 'block';
+                }
+            });
+            
+            video.addEventListener('loadeddata', function() {
+                console.log('Video loaded successfully');
+                if (fallbackImage) {
+                    fallbackImage.style.display = 'none';
+                }
+            });
+            
+            // Hide fallback image initially if video loads
+            if (fallbackImage) {
+                fallbackImage.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
