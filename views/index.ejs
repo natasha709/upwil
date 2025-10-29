@@ -774,115 +774,121 @@
         </div>
     </section>
 
-    <!-- Mission Section - Glassmorphic background -->
-    <section id="mission" class="py-20 glass-section fade-in">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-5xl font-bold text-white mb-8">Our Mission</h2>
-                    <p class="text-xl text-white leading-relaxed mb-6">
-                        At Upwil Environmental Integrated Consultancy and Research Center Ltd, we are committed to delivering high-quality services that promote environmental sustainability, social responsibility, capacity building, and economic growth.
-                    </p>
-                    <p class="text-xl text-white leading-relaxed">
-                        We strive to be a leading provider of environmental consultancy and research services, and to make a positive impact on the environment and the communities we serve through innovative solutions and dedicated expertise.
-                    </p>
-                </div>
-                <div class="card-hover">
-                    <img src="/uploads/envir.jpg" alt="Our Mission" class="w-full rounded-xl shadow-2xl">
-                </div>
-            </div>
+   <!-- Replace the entire contact section with this improved version -->
+<section id="contact" class="py-12 glass-section fade-in">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-center text-white mb-4">Contact Us</h2>
+            <p class="text-lg text-white max-w-xl mx-auto text-center">Have a project or inquiry? We'd love to hear from you. Reach out to discuss your environmental needs.</p>
         </div>
-    </section>
-
-    <!-- Contact Section - Glassmorphic background -->
-    <section id="contact" class="py-12 glass-section fade-in">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-center text-white mb-4">Contact Us</h2>
-                <p class="text-lg text-white max-w-xl mx-auto text-center">Have a project or inquiry? We'd love to hear from you. Reach out to discuss your environmental needs.</p>
-            </div>
-            
-            <div class="contact-layout">
-                <!-- Contact Form - Now on top -->
-                <div class="contact-form-container">
-                    <div class="contact-form">
-                        <h3 class="text-xl font-bold text-green-800 mb-4">Send us a Message</h3>
-                        <form id="contactForm" class="space-y-3">
-                            <div id="formAlert" class="alert hidden"></div>
-                            
-                            <div class="grid md:grid-cols-2 gap-3">
-                                <div>
-                                    <label for="firstName" class="block text-xs font-medium text-gray-700 mb-1">First Name *</label>
-                                    <input type="text" id="firstName" name="firstName" class="form-input" required>
-                                </div>
-                                <div>
-                                    <label for="lastName" class="block text-xs font-medium text-gray-700 mb-1">Last Name *</label>
-                                    <input type="text" id="lastName" name="lastName" class="form-input" required>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label for="email" class="block text-xs font-medium text-gray-700 mb-1">Email Address *</label>
-                                <input type="email" id="email" name="email" class="form-input" required>
-                            </div>
-                            
-                            <div class="grid md:grid-cols-2 gap-3">
-                                <div>
-                                    <label for="address" class="block text-xs font-medium text-gray-700 mb-1">Address</label>
-                                    <input type="text" id="address" name="address" class="form-input">
-                                </div>
-                                <div>
-                                    <label for="phone" class="block text-xs font-medium text-gray-700 mb-1">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" class="form-input">
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label for="subject" class="block text-xs font-medium text-gray-700 mb-1">Subject *</label>
-                                <input type="text" id="subject" name="subject" class="form-input" required>
-                            </div>
-                            
-                            <div>
-                                <label for="message" class="block text-xs font-medium text-gray-700 mb-1">Message *</label>
-                                <textarea id="message" name="message" class="form-textarea" required></textarea>
-                            </div>
-                            
-                            <button type="submit" id="submitBtn" class="submit-btn">
-                                <span id="submitText">Send Message</span>
-                                <span id="submitLoading" class="hidden">Sending...</span>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Contact Information - Now below the form -->
-                <div class="contact-info-container">
-                    <h3 class="text-2xl font-semibold text-white mb-4">Get In Touch</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <svg class="h-5 w-5 text-white mt-0.5 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+            <!-- Contact Information - Now on the left -->
+            <div class="contact-info-container">
+                <h3 class="text-2xl font-semibold text-white mb-6">Get In Touch</h3>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
-                            <p class="text-base text-white">123 Environmental Way, Kampala, Uganda</p>
                         </div>
-                        <div class="flex items-start">
-                            <svg class="h-5 w-5 text-white mt-0.5 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div>
+                            <h4 class="text-lg font-medium text-white mb-1">Our Location</h4>
+                            <p class="text-base text-green-100">123 Environmental Way, Kampala, Uganda</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                             </svg>
-                            <p class="text-base text-white">+256 772 063 06, +256 777 214 909/ +256 772 063 06</p>
                         </div>
-                        <div class="flex items-start">
-                            <svg class="h-5 w-5 text-white mt-0.5 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div>
+                            <h4 class="text-lg font-medium text-white mb-1">Phone Numbers</h4>
+                            <p class="text-base text-green-100">+256 772 063 06</p>
+                            <p class="text-base text-green-100">+256 777 214 909</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
-                            <p class="text-base text-white">upwilEnvironment.com</p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-white mb-1">Email Address</h4>
+                            <p class="text-base text-green-100">upwilEnvironment.com</p>
                         </div>
                     </div>
                 </div>
+                
+                <div class="mt-8 pt-6 border-t border-green-300">
+                    
+                </div>
+            </div>
+
+            <!-- Contact Form - Now on the right -->
+            <div class="contact-form-container">
+                <div class="contact-form">
+                    <h3 class="text-xl font-bold text-green-800 mb-6">Send us a Message</h3>
+                    <form id="contactForm" class="space-y-4">
+                        <div id="formAlert" class="alert hidden"></div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Your first name" required>
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Your last name" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+256 XXX XXX XXX">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject *</label>
+                                <input type="text" id="subject" name="subject" class="form-input" placeholder="Message subject" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                            <input type="text" id="address" name="address" class="form-input" placeholder="Your address">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell us about your project or inquiry..." rows="4" required></textarea>
+                        </div>
+                        
+                        <button type="submit" id="submitBtn" class="submit-btn w-full flex justify-center items-center">
+                            <span id="submitText">Send Message</span>
+                            <span id="submitLoading" class="hidden flex items-center">
+                                <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Sending...
+                            </span>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer class="bg-green-800 py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
