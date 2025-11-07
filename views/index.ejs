@@ -15,7 +15,7 @@
             position: relative;
         }
         
-        /* Video background for entire site */
+        /* Video background for entire site - Mobile Responsive */
         .site-video-background {
             position: fixed;
             top: 0;
@@ -58,6 +58,103 @@
             z-index: -2;
             display: none;
         }
+        
+        /* Mobile-specific video optimizations */
+        @media (max-width: 768px) {
+            .site-video-background {
+                /* Ensure video covers entire screen on mobile */
+                object-position: center;
+            }
+            
+            /* Reduce video quality for better mobile performance */
+            .site-video-background {
+                transform: scale(1.1); /* Slight zoom to ensure coverage */
+            }
+        }
+
+        @media (max-width: 640px) {
+            .site-video-background {
+                /* Further optimizations for small screens */
+                transform: scale(1.15);
+            }
+            
+            .site-video-overlay {
+                /* Slightly darker overlay for better text readability on mobile */
+                background: rgba(22, 101, 52, 0.5);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-video-background {
+                /* Maximum zoom for very small screens */
+                transform: scale(1.2);
+            }
+            
+            .site-video-overlay {
+                background: rgba(22, 101, 52, 0.6);
+            }
+        }
+
+        /* Portrait orientation specific fixes */
+        @media (max-width: 768px) and (orientation: portrait) {
+            .site-video-background {
+                object-fit: cover;
+                width: 100%;
+                height: 100vh;
+            }
+        }
+
+        /* Landscape orientation specific fixes */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .site-video-background {
+                object-fit: cover;
+                width: 100%;
+                height: 100vh;
+            }
+            
+            /* Reduce header height in landscape to save space */
+            header {
+                padding: 0.5rem 0;
+            }
+        }
+
+        /* Remove test indicator in production */
+        /*
+        body::before {
+            content: "Desktop View";
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            z-index: 10000;
+            font-size: 12px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            body::before {
+                content: "Tablet View - 768px or less";
+                background: green;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body::before {
+                content: "Mobile View - 640px or less";
+                background: blue;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body::before {
+                content: "Small Mobile - 480px or less";
+                background: purple;
+            }
+        }
+        */
         
         header { 
             position: fixed; 
@@ -123,25 +220,89 @@
             font-family: 'DM Sans', sans-serif;
         }
         
-        /* Services Carousel Styles */
+        /* Services Carousel Styles - Updated for mobile responsiveness */
         .services-carousel-container {
             position: relative;
             overflow: hidden;
             width: 100%;
             padding: 20px 0;
         }
-        
+
         .services-carousel-track {
             display: flex;
-            transition: transform 0.5s ease;
-            width: max-content;
+            animation: scroll 30s linear infinite;
+            width: 200%; /* Double width for seamless looping */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            will-change: transform; /* Performance optimization */
         }
-        
+
         .services-carousel-slide {
             flex: 0 0 auto;
-            width: 320px; /* Reduced from 400px */
+            width: 320px;
             margin: 0 15px;
             box-sizing: border-box;
+        }
+
+        /* Pause animation on hover */
+        .services-carousel-container:hover .services-carousel-track {
+            animation-play-state: paused;
+        }
+
+        /* Continuous scrolling animation */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 768px) {
+            .services-carousel-track {
+                width: 400%; /* Increased width for better mobile performance */
+                animation: scroll-mobile 40s linear infinite; /* Slower on mobile */
+            }
+            
+            .services-carousel-slide {
+                width: 280px; /* Slightly smaller for mobile */
+                margin: 0 10px; /* Reduced margin */
+            }
+        }
+
+        @media (max-width: 640px) {
+            .services-carousel-track {
+                width: 500%; /* Further increased for very small screens */
+                animation: scroll-mobile 45s linear infinite;
+            }
+            
+            .services-carousel-slide {
+                width: 260px;
+                margin: 0 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-carousel-track {
+                width: 600%; /* Maximum width for smallest screens */
+                animation: scroll-mobile 50s linear infinite;
+            }
+            
+            .services-carousel-slide {
+                width: 240px;
+                margin: 0 6px;
+            }
+        }
+
+        /* Mobile-specific animation */
+        @keyframes scroll-mobile {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
         
         /* Expertise Carousel Styles */
@@ -382,10 +543,6 @@
         
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .services-carousel-slide {
-                width: 260px; /* Reduced from 300px */
-            }
-            
             .carousel-arrow {
                 width: 35px;
                 height: 35px;
@@ -434,10 +591,6 @@
         }
         
         @media (max-width: 640px) {
-            .services-carousel-slide {
-                width: 240px; /* Reduced from 280px */
-            }
-            
             h2 {
                 font-size: 2.5rem !important;
             }
@@ -512,10 +665,6 @@
         }
         
         @media (max-width: 480px) {
-            .services-carousel-slide {
-                width: 220px; /* Reduced from 250px */
-            }
-            
             h2 {
                 font-size: 2rem !important;
             }
@@ -543,14 +692,118 @@
                 margin-left: 0; /* Removed margin to push to extreme left */
             }
         }
+        
+        /* Improved Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            /* Better touch targets for mobile */
+            .mobile-menu a {
+                font-size: 1.25rem;
+                padding: 0.75rem 0;
+            }
+            
+            /* Improved spacing for mobile sections */
+            .py-12 {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            
+            /* Better text readability on mobile */
+            .text-white {
+                text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            }
+            
+            /* Improved carousel touch interactions */
+            .carousel-arrow {
+                width: 44px;
+                height: 44px;
+            }
+            
+            /* Better spacing for mobile grid layouts */
+            .gap-12 {
+                gap: 2rem;
+            }
+            
+            .gap-16 {
+                gap: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            /* Further mobile optimizations */
+            .max-w-7xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Improved header spacing */
+            header .max-w-7xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Better mobile navigation */
+            .mobile-menu a {
+                font-size: 1.1rem;
+            }
+            
+            /* Improved contact form spacing */
+            .contact-form .space-y-4 > * {
+                margin-bottom: 0.75rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Smallest screen optimizations */
+            .p-6 {
+                padding: 1rem;
+            }
+            
+            /* Better text sizing for very small screens */
+            .text-base {
+                font-size: 0.875rem;
+            }
+            
+            /* Improved button sizing */
+            .submit-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            /* Better carousel navigation for small screens */
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .carousel-arrow.prev {
+                left: 2px;
+            }
+            
+            .carousel-arrow.next {
+                right: 2px;
+            }
+        }
+        
+        /* Prevent horizontal scrolling on mobile */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Improved video loading for mobile */
+        .site-video-background {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
     </style>
 </head>
 <body class="font-sans">
-    <!-- Site-wide Video Background -->
-    <video class="site-video-background" autoplay muted loop playsinline preload="metadata" id="site-video">
+    <!-- Site-wide Video Background with Mobile Optimization -->
+    <video class="site-video-background" autoplay muted loop playsinline preload="auto" id="site-video" poster="/uploads/envir.jpg">
+        <!-- Multiple sources for better browser compatibility -->
         <source src="/uploads/upwil.mp4" type="video/mp4">
         <source src="./uploads/upwil.mp4" type="video/mp4">
         <source src="uploads/upwil.mp4" type="video/mp4">
+        <!-- Fallback text -->
         Your browser does not support the video tag.
     </video>
     
@@ -561,7 +814,7 @@
 
     <!-- Header -->
     <header class="bg-green-800">
-        <div class="max-w-7xl mx-auto pl-0 pr-4 sm:pr-6 lg:pr-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
                     <!-- Logo added here - positioned to extreme left -->
@@ -608,18 +861,18 @@
     </section>
 
     <!-- About Section - Glassmorphic background -->
-    <section id="about" class="py-20 glass-section fade-in">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold text-center text-white mb-6">About Us</h2>
-                <p class="text-xl text-white max-w-2xl mx-auto text-center">Learn more about our commitment to environmental excellence</p>
+    <section id="about" class="py-12 md:py-20 glass-section fade-in">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-center text-white mb-4 md:mb-6">About Us</h2>
+                <p class="text-base md:text-xl text-white max-w-2xl mx-auto text-center">Learn more about our commitment to environmental excellence</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                 <div>
-                    <p class="text-lg text-white leading-relaxed mb-6">
+                    <p class="text-base md:text-lg text-white leading-relaxed mb-6">
                         Upwil Environmental Integrated Consultancy and Research Center Ltd is a leading environmental consultancy and research organization dedicated to providing innovative solutions for sustainable development. Our mission is to deliver high-quality services that promote environmental stewardship, social responsibility, and economic growth.
                     </p>
-                    <p class="text-lg text-white leading-relaxed">
+                    <p class="text-base md:text-lg text-white leading-relaxed">
                         With years of experience in the field, we have built a reputation for excellence in environmental management, climate change adaptation, and sustainable development practices. Our team of experts is committed to making a positive impact on the environment and the communities we serve.
                     </p>
                 </div>
@@ -630,43 +883,73 @@
         </div>
     </section>
 
-    <!-- Services Section with Auto-Scrolling Carousel - Glassmorphic background -->
-    <section id="services" class="py-20 glass-section fade-in">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold text-center text-white mb-6">Our Services</h2>
-                <p class="text-xl text-white max-w-2xl mx-auto text-center">Comprehensive environmental solutions tailored to your needs</p>
+    <!-- Services Section with Continuous Auto-Scrolling Carousel - Glassmorphic background -->
+    <section id="services" class="py-12 md:py-20 glass-section fade-in">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-center text-white mb-4 md:mb-6">Our Services</h2>
+                <p class="text-base md:text-xl text-white max-w-2xl mx-auto text-center">Comprehensive environmental solutions tailored to your needs</p>
             </div>
             
             <div class="services-carousel-container">
                 <div class="services-carousel-track" id="services-track">
                     <!-- Service cards that will be continuously rotated -->
                     <div class="services-carousel-slide">
-                        <div class="bg-white p-8 rounded-2xl shadow-lg card-hover h-full">
-                            <img src="/uploads/envir.jpg" alt="EIA" class="w-full h-48 object-cover rounded-xl mb-6">
-                            <h3 class="font-bold text-2xl text-green-700 mb-4">Environmental Impact Assessments (EIA)</h3>
-                            <p class="text-gray-600 leading-relaxed">Identifying and mitigating potential environmental impacts of development projects to ensure sustainable growth.</p>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover h-full">
+                            <img src="/uploads/envir.jpg" alt="EIA" class="w-full h-40 md:h-48 object-cover rounded-xl mb-4 md:mb-6">
+                            <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Environmental Impact Assessments (EIA)</h3>
+                            <p class="text-gray-600 text-sm md:text-base leading-relaxed">Identifying and mitigating potential environmental impacts of development projects to ensure sustainable growth.</p>
                         </div>
                     </div>
                     <div class="services-carousel-slide">
-                        <div class="bg-white p-8 rounded-2xl shadow-lg card-hover h-full">
-                            <img src="/uploads/ugg.jpg" alt="Sustainability Consulting" class="w-full h-48 object-cover rounded-xl mb-6">
-                            <h3 class="font-bold text-2xl text-green-700 mb-4">Sustainability Consulting</h3>
-                            <p class="text-gray-600 leading-relaxed">Developing strategies for sustainable development and implementing environmentally friendly practices across industries.</p>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover h-full">
+                            <img src="/uploads/ugg.jpg" alt="Sustainability Consulting" class="w-full h-40 md:h-48 object-cover rounded-xl mb-4 md:mb-6">
+                            <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Sustainability Consulting</h3>
+                            <p class="text-gray-600 text-sm md:text-base leading-relaxed">Developing strategies for sustainable development and implementing environmentally friendly practices across industries.</p>
                         </div>
                     </div>
                     <div class="services-carousel-slide">
-                        <div class="bg-white p-8 rounded-2xl shadow-lg card-hover h-full">
-                            <img src="/uploads/reas.jpg" alt="Research and Development" class="w-full h-48 object-cover rounded-xl mb-6">
-                            <h3 class="font-bold text-2xl text-green-700 mb-4">Research and Development</h3>
-                            <p class="text-gray-600 leading-relaxed">Conducting cutting-edge research on environmental issues and developing innovative solutions for a greener future.</p>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover h-full">
+                            <img src="/uploads/reas.jpg" alt="Research and Development" class="w-full h-40 md:h-48 object-cover rounded-xl mb-4 md:mb-6">
+                            <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Research and Development</h3>
+                            <p class="text-gray-600 text-sm md:text-base leading-relaxed">Conducting cutting-edge research on environmental issues and developing innovative solutions for a greener future.</p>
                         </div>
                     </div>
                     <div class="services-carousel-slide">
-                        <div class="bg-white p-8 rounded-2xl shadow-lg card-hover h-full">
-                            <img src="/uploads/cons.webp" alt="Capacity Building" class="w-full h-48 object-cover rounded-xl mb-6">
-                            <h3 class="font-bold text-2xl text-green-700 mb-4">Capacity Building and Training</h3>
-                            <p class="text-gray-600 leading-relaxed">Providing comprehensive training and capacity-building programs for organizations and individuals to foster environmental awareness.</p>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover h-full">
+                            <img src="/uploads/cons.webp" alt="Capacity Building" class="w-full h-40 md:h-48 object-cover rounded-xl mb-4 md:mb-6">
+                            <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Capacity Building and Training</h3>
+                            <p class="text-gray-600 text-sm md:text-base leading-relaxed">Providing comprehensive training and capacity-building programs for organizations and individuals to foster environmental awareness.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Duplicate slides for seamless looping -->
+                    <div class="services-carousel-slide">
+                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover h-full">
+                            <img src="/uploads/envir.jpg" alt="EIA" class="w-full h-40 md:h-48 object-cover rounded-xl mb-4 md:mb-6">
+                            <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Environmental Impact Assessments (EIA)</h3>
+                            <p class="text-gray-600 text-sm md:text-base leading-relaxed">Identifying and mitigating potential environmental impacts of development projects to ensure sustainable growth.</p>
+                        </div>
+                    </div>
+                    <div class="services-carousel-slide">
+                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover h-full">
+                            <img src="/uploads/ugg.jpg" alt="Sustainability Consulting" class="w-full h-40 md:h-48 object-cover rounded-xl mb-4 md:mb-6">
+                            <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Sustainability Consulting</h3>
+                            <p class="text-gray-600 text-sm md:text-base leading-relaxed">Developing strategies for sustainable development and implementing environmentally friendly practices across industries.</p>
+                        </div>
+                    </div>
+                    <div class="services-carousel-slide">
+                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover h-full">
+                            <img src="/uploads/reas.jpg" alt="Research and Development" class="w-full h-40 md:h-48 object-cover rounded-xl mb-4 md:mb-6">
+                            <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Research and Development</h3>
+                            <p class="text-gray-600 text-sm md:text-base leading-relaxed">Conducting cutting-edge research on environmental issues and developing innovative solutions for a greener future.</p>
+                        </div>
+                    </div>
+                    <div class="services-carousel-slide">
+                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover h-full">
+                            <img src="/uploads/cons.webp" alt="Capacity Building" class="w-full h-40 md:h-48 object-cover rounded-xl mb-4 md:mb-6">
+                            <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Capacity Building and Training</h3>
+                            <p class="text-gray-600 text-sm md:text-base leading-relaxed">Providing comprehensive training and capacity-building programs for organizations and individuals to foster environmental awareness.</p>
                         </div>
                     </div>
                 </div>
@@ -675,11 +958,11 @@
     </section>
 
     <!-- Expertise Section with Icon Carousel - Glassmorphic background -->
-    <section id="expertise" class="py-20 glass-section fade-in">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold text-center text-white mb-6">Our Expertise</h2>
-                <p class="text-xl text-white max-w-2xl mx-auto text-center">Areas where we excel in delivering exceptional environmental solutions</p>
+    <section id="expertise" class="py-12 md:py-20 glass-section fade-in">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-center text-white mb-4 md:mb-6">Our Expertise</h2>
+                <p class="text-base md:text-xl text-white max-w-2xl mx-auto text-center">Areas where we excel in delivering exceptional environmental solutions</p>
             </div>
             
             <div class="carousel-container">
@@ -692,41 +975,41 @@
                 <div class="carousel-track" id="expertise-track">
                     <!-- Slide 1 -->
                     <div class="carousel-slide">
-                        <div class="grid md:grid-cols-3 gap-10">
-                            <div class="bg-white p-8 rounded-2xl shadow-lg card-hover text-center">
+                        <div class="grid md:grid-cols-3 gap-6 md:gap-10">
+                            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover text-center">
                                 <div class="expertise-icon">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                                     </svg>
                                 </div>
-                                <h3 class="font-bold text-2xl text-green-700 mb-4">Environmental Management</h3>
-                                <p class="text-gray-600 leading-relaxed">Developing and implementing comprehensive environmental management systems and strategies to ensure compliance and sustainability.</p>
+                                <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Environmental Management</h3>
+                                <p class="text-gray-600 text-sm md:text-base leading-relaxed">Developing and implementing comprehensive environmental management systems and strategies to ensure compliance and sustainability.</p>
                             </div>
-                            <div class="bg-white p-8 rounded-2xl shadow-lg card-hover text-center">
+                            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover text-center">
                                 <div class="expertise-icon">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
                                     </svg>
                                 </div>
-                                <h3 class="font-bold text-2xl text-green-700 mb-4">Climate Change</h3>
-                                <p class="text-gray-600 leading-relaxed">Conducting detailed climate change vulnerability assessments and developing effective adaptation strategies for resilient communities.</p>
+                                <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Climate Change</h3>
+                                <p class="text-gray-600 text-sm md:text-base leading-relaxed">Conducting detailed climate change vulnerability assessments and developing effective adaptation strategies for resilient communities.</p>
                             </div>
-                            <div class="bg-white p-8 rounded-2xl shadow-lg card-hover text-center">
+                            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover text-center">
                                 <div class="expertise-icon">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
                                     </svg>
                                 </div>
-                                <h3 class="font-bold text-2xl text-green-700 mb-4">Sustainable Development</h3>
-                                <p class="text-gray-600 leading-relaxed">Promoting sustainable development practices and seamlessly integrating environmental considerations into all development projects.</p>
+                                <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Sustainable Development</h3>
+                                <p class="text-gray-600 text-sm md:text-base leading-relaxed">Promoting sustainable development practices and seamlessly integrating environmental considerations into all development projects.</p>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Slide 3 - New cards for capacity building and sustainability -->
+                    <!-- Slide 2 - New cards for capacity building and sustainability -->
                     <div class="carousel-slide">
-                        <div class="grid md:grid-cols-3 gap-10">
-                            <div class="bg-white p-8 rounded-2xl shadow-lg card-hover text-center">
+                        <div class="grid md:grid-cols-3 gap-6 md:gap-10">
+                            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover text-center">
                                 <div class="expertise-icon">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
@@ -734,26 +1017,26 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
                                     </svg>
                                 </div>
-                                <h3 class="font-bold text-2xl text-green-700 mb-4">Capacity Building</h3>
-                                <p class="text-gray-600 leading-relaxed">Developing skills and knowledge within organizations and communities to effectively address environmental challenges.</p>
+                                <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Capacity Building</h3>
+                                <p class="text-gray-600 text-sm md:text-base leading-relaxed">Developing skills and knowledge within organizations and communities to effectively address environmental challenges.</p>
                             </div>
-                            <div class="bg-white p-8 rounded-2xl shadow-lg card-hover text-center">
+                            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover text-center">
                                 <div class="expertise-icon">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                                     </svg>
                                 </div>
-                                <h3 class="font-bold text-2xl text-green-700 mb-4">Sustainability Planning</h3>
-                                <p class="text-gray-600 leading-relaxed">Creating comprehensive sustainability plans that balance environmental, social, and economic considerations.</p>
+                                <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Sustainability Planning</h3>
+                                <p class="text-gray-600 text-sm md:text-base leading-relaxed">Creating comprehensive sustainability plans that balance environmental, social, and economic considerations.</p>
                             </div>
-                            <div class="bg-white p-8 rounded-2xl shadow-lg card-hover text-center">
+                            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg card-hover text-center">
                                 <div class="expertise-icon">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                     </svg>
                                 </div>
-                                <h3 class="font-bold text-2xl text-green-700 mb-4">Green Innovation</h3>
-                                <p class="text-gray-600 leading-relaxed">Developing and implementing innovative solutions that promote environmental sustainability and resource efficiency.</p>
+                                <h3 class="font-bold text-xl md:text-2xl text-green-700 mb-3 md:mb-4">Green Innovation</h3>
+                                <p class="text-gray-600 text-sm md:text-base leading-relaxed">Developing and implementing innovative solutions that promote environmental sustainability and resource efficiency.</p>
                             </div>
                         </div>
                     </div>
@@ -768,72 +1051,106 @@
                 <div class="carousel-nav" id="expertise-nav">
                     <span class="carousel-dot active" data-slide="0"></span>
                     <span class="carousel-dot" data-slide="1"></span>
-                    <span class="carousel-dot" data-slide="2"></span>
                 </div>
             </div>
         </div>
     </section>
 
-   <!-- Replace the entire contact section with this improved version -->
+    <!-- Mission Section - Glassmorphic background -->
+    <section id="mission" class="py-12 md:py-20 glass-section fade-in">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-center text-white mb-4 md:mb-6">Our Mission</h2>
+                <p class="text-base md:text-xl text-white max-w-2xl mx-auto text-center">Driving environmental excellence through innovation and commitment</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div>
+                    <h3 class="font-bold text-2xl md:text-3xl text-white mb-6 text-center md:text-left">Our Commitment to Excellence</h3>
+                    <p class="text-base md:text-lg text-white leading-relaxed mb-6">
+                        At Upwil Environmental Integrated Consultancy and Research Center Ltd, we are committed to delivering high-quality services that promote environmental sustainability, social responsibility, and economic growth.
+                    </p>
+                    <p class="text-base md:text-lg text-white leading-relaxed mb-8">
+                        We strive to be a leading provider of environmental consultancy and research services, and to make a positive impact on the environment and the communities we serve.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="bg-white bg-opacity-20 p-4 rounded-xl text-center card-hover">
+                            <h4 class="font-bold text-white text-lg mb-2">Sustainability</h4>
+                            <p class="text-green-100 text-sm">Promoting environmental stewardship</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-4 rounded-xl text-center card-hover">
+                            <h4 class="font-bold text-white text-lg mb-2">Responsibility</h4>
+                            <p class="text-green-100 text-sm">Social and environmental accountability</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-4 rounded-xl text-center card-hover">
+                            <h4 class="font-bold text-white text-lg mb-2">Growth</h4>
+                            <p class="text-green-100 text-sm">Driving sustainable economic development</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <img src="/uploads/envir.jpg" alt="Our Mission" class="w-full rounded-xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Contact Section -->
 <section id="contact" class="py-12 glass-section fade-in">
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-center text-white mb-4">Contact Us</h2>
-            <p class="text-lg text-white max-w-xl mx-auto text-center">Have a project or inquiry? We'd love to hear from you. Reach out to discuss your environmental needs.</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-4">Contact Us</h2>
+            <p class="text-base md:text-lg text-white max-w-xl mx-auto text-center">Have a project or inquiry? We'd love to hear from you. Reach out to discuss your environmental needs.</p>
         </div>
         
         <div class="grid md:grid-cols-2 gap-8 items-start">
             <!-- Contact Information - Now on the left -->
             <div class="contact-info-container">
-                <h3 class="text-2xl font-semibold text-white mb-6">Get In Touch</h3>
+                <h3 class="text-xl md:text-2xl font-semibold text-white mb-6">Get In Touch</h3>
                 <div class="space-y-6">
                     <div class="flex items-start">
                         <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="h-5 w-5 md:h-6 md:w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-lg font-medium text-white mb-1">Our Location</h4>
-                            <p class="text-base text-green-100">123 Environmental Way, Kampala, Uganda</p>
+                            <h4 class="text-base md:text-lg font-medium text-white mb-1">Our Location</h4>
+                            <p class="text-sm md:text-base text-green-100">123 Environmental Way, Kampala, Uganda</p>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="h-5 w-5 md:h-6 md:w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-lg font-medium text-white mb-1">Phone Numbers</h4>
-                            <p class="text-base text-green-100">+256 767 206 306</p>
-                            <p class="text-base text-green-100">+256 777 214 909</p>
-                            <p class="text-base text-green-100">+256 773 148 252</p>
+                            <h4 class="text-base md:text-lg font-medium text-white mb-1">Phone Numbers</h4>
+                            <p class="text-sm md:text-base text-green-100">+256 767 206 306</p>
+                            <p class="text-sm md:text-base text-green-100">+256 777 214 909</p>
+                            <p class="text-sm md:text-base text-green-100">+256 773 148 252</p>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="h-5 w-5 md:h-6 md:w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-lg font-medium text-white mb-1">Email Address</h4>
-                            <p class="text-base text-green-100">upwilEnvironment.com</p>
+                            <h4 class="text-base md:text-lg font-medium text-white mb-1">Email Address</h4>
+                            <p class="text-sm md:text-base text-green-100">upwilEnvironment.com</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="mt-8 pt-6 border-t border-green-300">
-                    
                 </div>
             </div>
 
             <!-- Contact Form - Now on the right -->
             <div class="contact-form-container">
                 <div class="contact-form">
-                    <h3 class="text-xl font-bold text-green-800 mb-6">Send us a Message</h3>
+                    <h3 class="text-lg md:text-xl font-bold text-green-800 mb-6">Send us a Message</h3>
                     <form id="contactForm" class="space-y-4">
                         <div id="formAlert" class="alert hidden"></div>
                         
@@ -950,6 +1267,18 @@
         const siteFallbackImage = document.getElementById('site-fallback-image');
         
         if (siteVideo) {
+            // Mobile-specific video optimizations
+            function optimizeVideoForMobile() {
+                if (window.innerWidth <= 768) {
+                    // Lower video quality on mobile for better performance
+                    siteVideo.preload = 'metadata';
+                    siteVideo.playsinline = true;
+                    
+                    // Add loading attribute for better mobile performance
+                    siteVideo.setAttribute('loading', 'lazy');
+                }
+            }
+            
             siteVideo.addEventListener('error', function() {
                 console.log('Site video failed to load, showing fallback image');
                 siteVideo.style.display = 'none';
@@ -965,11 +1294,18 @@
                 }
             });
             
+            // Optimize video based on screen size
+            optimizeVideoForMobile();
+            window.addEventListener('resize', optimizeVideoForMobile);
+            
             siteVideo.play().catch(error => {
                 console.log('Site video autoplay failed:', error);
 
+                // Add user interaction requirement for mobile
                 document.addEventListener('click', function playVideoOnce() {
-                    siteVideo.play();
+                    siteVideo.play().catch(e => {
+                        console.log('Video play after interaction failed:', e);
+                    });
                     document.removeEventListener('click', playVideoOnce);
                 });
             });
@@ -978,36 +1314,6 @@
                 siteFallbackImage.style.display = 'none';
             }
         }
-
-
-        function initializeServicesCarousel() {
-            const track = document.getElementById('services-track');
-            const slides = track.querySelectorAll('.services-carousel-slide');
-            const slidesArray = Array.from(slides);
-            slidesArray.forEach(slide => {
-                const clone = slide.cloneNode(true);
-                track.appendChild(clone);
-            });
-            
-            let position = 0;
-            const slideWidth = slides[0].offsetWidth + 30; 
-            const totalWidth = slideWidth * slides.length;
-            
-            function autoScroll() {
-                position -= 1; 
-                
-
-                if (Math.abs(position) >= totalWidth) {
-                    position = 0;
-                }
-                
-                track.style.transform = `translateX(${position}px)`;
-                requestAnimationFrame(autoScroll);
-            }
-            
-            autoScroll();
-        }
-        
 
         function initializeCarousel(carouselId) {
             const track = document.getElementById(`${carouselId}-track`);
@@ -1119,9 +1425,7 @@
         });
         
         document.addEventListener('DOMContentLoaded', () => {
-            initializeServicesCarousel();
             initializeCarousel('expertise');
-            
         });
     </script>
     
